@@ -39,7 +39,7 @@ jobs:
     # 5. Update kubeconfig
     - name: Update kubeconfig
       run: |
-        aws eks update-kubeconfig --name my-dotnet-cluster --region us-east-1
+        aws eks update-kubeconfig --name my-app --region us-east-1
 
     # 6. Deploy with Helm
     - name: Deploy to EKS
