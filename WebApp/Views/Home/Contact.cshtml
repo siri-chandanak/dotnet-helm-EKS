@@ -1,0 +1,47 @@
+@{
+    ViewData["Title"] = "Contact";
+}
+<h1>Contact Us</h1>
+<p>@ViewBag.Message</p>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Get in Touch</h2>
+        <p>If you have any questions or would like to discuss a project, contact us!</p>
+
+        <ul>
+            <li><strong>Email:</strong> contact@example.com</li>
+            <li><strong>Phone:</strong> +1 (555) 123-4567</li>
+            <li><strong>Address:</strong> 123 Main Street, Anytown, USA</li>
+        </ul>
+
+        <h2>Send a Message</h2>
+        <form method="post" action="/Home/Contact">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h2>Our Location</h2>
+        <iframe src="https://maps.google.com/maps?q=New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+        <h2 class="mt-4">Follow Us</h2>
+        <p>
+            <a href="#" class="btn btn-outline-primary me-2">Facebook</a>
+            <a href="#" class="btn btn-outline-info me-2">Twitter</a>
+            <a href="#" class="btn btn-outline-secondary">LinkedIn</a>
+        </p>
+    </div>
+</div>
