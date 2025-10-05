@@ -49,4 +49,4 @@ jobs:
     # 7. Force Kubernetes to pull new image
     - name: Force restart deployment
       run: |
-        kubectl rollout restart deployment mydotnetapp
+        kubectl rollout restart deployment myapp-service
