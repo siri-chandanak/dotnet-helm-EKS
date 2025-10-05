@@ -45,3 +45,8 @@ jobs:
     - name: Deploy to EKS
       run: |
         helm upgrade --install mydotnetapp ./mydotnetapp --set image.tag=latest --set image.pullPolicy=Always
+
+    # 7. Force Kubernetes to pull new image
+    - name: Force restart deployment
+      run: |
+        kubectl rollout restart deployment mydotnetapp
