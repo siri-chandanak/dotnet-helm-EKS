@@ -1,0 +1,42 @@
+replicaCount: 2
+
+image:
+  repository: siri019/dotnetapp
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: LoadBalancer
+  port: 80
+
+serviceAccount:
+  create: false
+
+
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: webapp.example.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
