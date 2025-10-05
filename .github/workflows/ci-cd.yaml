@@ -24,7 +24,7 @@ jobs:
     # 3. Build Docker image
     - name: Build Docker image
       run: |
-        IMAGE_NAME=yourusername/webapp:latest
+        IMAGE_NAME=siri019/dotnetapp:latest
         docker build -t $IMAGE_NAME ./WebApp
         docker push $IMAGE_NAME
 
