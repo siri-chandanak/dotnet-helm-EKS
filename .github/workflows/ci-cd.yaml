@@ -44,4 +44,4 @@ jobs:
     # 6. Deploy with Helm
     - name: Deploy to EKS
       run: |
-        helm upgrade --install mydotnetapp ./mydotnetapp --set image.repository=siri019/dotnetapp --set image.tag=latest
+        helm upgrade --install mydotnetapp ./mydotnetapp --set image.tag=latest --set image.pullPolicy=Always
