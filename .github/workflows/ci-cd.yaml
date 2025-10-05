@@ -44,6 +44,6 @@ jobs:
     # 6. Deploy with Helm
     - name: Deploy to EKS
       run: |
-        helm upgrade --install webapp ./helm-chart \
+        helm upgrade --install my-app ./helm-chart \
           --set image.repository=yourusername/webapp \
           --set image.tag=latest
