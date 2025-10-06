@@ -115,4 +115,4 @@ Make sure to set the following secrets in your GitHub repository:
 
 - I added Contact page to the web app. Here is the screenshot of the Contact page, after the changes were applied.
 
-![alt text](Screenshots/contact.png)
+![alt text](Screenshots/app2.png)
