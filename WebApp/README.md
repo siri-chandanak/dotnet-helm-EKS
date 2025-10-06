@@ -14,4 +14,4 @@ The Home view serves as the landing page, while the About view provides informat
 - **Services**: Details about the services offered.
 ![alt text](./Screenshots/services.png)
 - **Contact**: A form for users to get in touch.
-![alt text](./Screenshots/app2.png)
+![alt text](./Screenshots/contact.png)

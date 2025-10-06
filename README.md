@@ -97,6 +97,35 @@ kubectl rollout restart deployment myapp
    - Username: admin
    - Password: admin (you will be prompted to change it on first login)
 
+4. **Add Prometheus as a Data Source in Grafana**:
+   - Go to Grafana UI.
+   - Navigate to Configuration > Data Sources > Add data source.
+   - Select Prometheus and set the URL to `http://<Prometheus_Service_IP>:<NodePort>`.
+   - Click Save & Test.
+
+- Created values-minimal.yaml file to avoid resource issues while deploying Prometheus and Grafana on AWS EKS.
+```bash
+helm upgrade --install prometheus prometheus-community/prometheus -n default -f values-minimal.yaml
+kubectl get pods -n default
+helm upgrade --install grafana grafana/grafana -n default
+```
+
+5. **Retrieve Grafana Admin Password**:
+   ```bash
+   kubectl get secret grafana -n default -o jsonpath="{.data.admin-user}" | base64 --decode
+   kubectl get secret grafana -n default -o jsonpath="{.data.admin-password}" | base64 --decode
+   ```
+
+6. **Access Grafana Dashboard**:
+   Open your browser and navigate to the Grafana LoadBalancer URL.
+   ```bash
+   kubectl get svc grafana -n default
+   ```
+   via port forwarding:
+   ```bash
+   kubectl port-forward svc/grafana 3000:80 -n default
+   ```
+
 ## CI/CD with GitHub Actions
 This project includes a GitHub Actions workflow for CI/CD. The workflow builds the Docker image, pushes it to Docker Hub, and deploys it to the EKS cluster on every push to the `main` branch.
 Make sure to set the following secrets in your GitHub repository:
@@ -116,3 +145,7 @@ Make sure to set the following secrets in your GitHub repository:
 - I added Contact page to the web app. Here is the screenshot of the Contact page, after the changes were applied.
 
 ![alt text](Screenshots/app2.png)
+
+- Grafana dashboard, showing metrics collected by Prometheus.
+
+![alt text](./Screenshots/grafana.png)
